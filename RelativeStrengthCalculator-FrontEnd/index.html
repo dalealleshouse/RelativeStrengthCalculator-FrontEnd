@@ -82,6 +82,8 @@
                
             </form>
 
+        <div id="bubble-graph"></div>
+
 
     </div><!-- /.container -->
     <!-- Bootstrap core JavaScript
@@ -109,10 +111,72 @@
             };
         })(Calculator, ResultsNotifier);
 
+
+        // width of chart
+        var diameter = 960,
+            format = d3.format(",d"),
+            // creates an ordinal scale with 20 colors. See D3 docs for hex values
+            color = d3.scale.category20c();
+
+        // chart object to which we'll be adding data
+        var bubble = d3.layout.pack()
+          .sort(null)
+          .size([diameter, diameter])
+          .padding(1.5);
+
+        // add an svg to the DOM that our pack object will use to draw the 
+        // visualization
+        var svg = d3.select("#bubble-graph").append("svg")
+          .attr("width", diameter)
+          .attr("height", diameter)
+          .attr("class", "bubble");
+
+
+        function setGraphData(data) {
+            var node = svg.selectAll(".node")
+              // Here's where we pass our data to the pack object
+              .data(bubble.nodes(data)
+              .filter(function (d) { return !d.children; }))
+              .enter().append("g")
+              .attr("class", "node")
+              .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+            // Append a circle for each tag name
+            node.append("circle")
+              .attr("r", function (d) { return d.r; })
+              .style("fill", function (d) { return color(d.className); });
+
+            // Add a label to each circle, using the tag name as the label's text
+            node.append("text")
+              .attr("dy", ".3em")
+              .style("text-anchor", "middle")
+              .style("font-size", "12px")
+              .text(function (d) { return d.className });
+        }
+
+        function processData(dataResponse) {
+            var tagNames = pluck(_.flatten(pluck(dataResponse.data, 'tags')), 'name');
+            var tagNamesUnique = _.compact(_.uniq(tagNames));
+
+            return {
+                children: makeArrayCount(tagNamesUnique, tagNames).map(function (tagArray) {
+                    return {
+                        className: tagArray[0],
+                        package: "cluster",
+                        value: tagArray[1]
+                    }
+                })
+            }
+
+        }
+
+        function updateGraph(dataResponse) {
+            setGraphData(processData(dataResponse));
+        }
            
     </script>
 
-    <div id="bubble-graph"></div>
+   
 
 </body>
 </html>
