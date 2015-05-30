@@ -15,7 +15,8 @@
                 "x_axis": counter * 10 + previous,
                 "y_axis": counter * 10 + previous,
                 "radius": adjustedScore,
-                "color": o.color
+                "color": o.color,
+                "name": o.request.name
             });
 
             counter++;

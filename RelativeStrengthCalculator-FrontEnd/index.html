@@ -111,6 +111,17 @@
             .attr("fill", params.color);
     }
 
+    function AppendText(params, container) {
+        console.log(params);
+        container.append("text")
+            .attr("x", params.x_axis - (params.radius / 2))
+            .attr("y", params.y_axis)
+            .text(function(d) { return params.name; })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "12px")
+            .attr("fill", "black");;
+    }
+
 
     (function(calculator, notifier, dt) {
         var n = new notifier.Notifier(doit);
@@ -123,10 +134,12 @@
 
         function doit(results) {
             $("circle").remove();
+            $("text").remove();
             var transformed = dt.transform(results);
 
             transformed.forEach(function(p) {
                 AppendCircle(p, svgContainer);
+                AppendText(p, svgContainer);
             });
         };
     })(Calculator, ResultsNotifier, DataTransformer);
