@@ -107,7 +107,7 @@
         .attr("cx", params.x_axis)
         .attr("cy", params.y_axis)
         .attr("r", params.radius)
-        .attr("color", params.color);
+        .attr("fill", params.color);
     }
 
     
@@ -122,14 +122,12 @@
         });
 
         function doit(results) {
-            console.log(dt.transform(results));
+            $("circle").remove();
+            var transformed = dt.transform(results);
 
-            var results = dt.transform(results);
-
-            results.forEach(function (p) {
+            transformed.forEach(function (p) {
                 AppendCircle(p, svgContainer);
-            })
-
+            });
         };
     })(Calculator, ResultsNotifier, DataTransformer);
 
