@@ -25,31 +25,32 @@
     };
 
     function getColor(num) {
-        if (num <= 1)
-            return "green";
-        if (num <= 2)
+        if (num < 1)
+            return "red";
+        if (num < 2)
             return "yellow";
 
-        return "red";
+        return "green";
     }
 
     function getRelativePlacement(scores) {
-        scores.sort(function(a, b) {
-            if (a.result.Score > b.result.Score) {
-                return -1;
-            }
-            if (a.result.Score < b.result.Score) {
-                return 1;
-            }
-            // a must be equal to b
-            return 0;
+        var sorted = _.sortBy(scores, function(s) {
+            return s.result.Score;
         });
 
-        var totalNumber = scores.length;
-        for (var i = 0; i < scores.length; i++) {
-            scores[i].color = getColor(i);
+        var third = sorted.length / 3;
+
+        for (var i = 0; i < sorted.length; i++) {
+            if (i < third) {
+                sorted[i].color = "red";
+            }
+            else if (i < third * 2) {
+                sorted[i].color = "yellow";
+            } else {
+                sorted[i].color = "green"
+            }
         }
 
-        return scores;
+        return sorted;
     }
 })(DataTransformer);
