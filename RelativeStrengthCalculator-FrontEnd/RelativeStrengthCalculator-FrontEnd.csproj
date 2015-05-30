@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataTransformer.js" />
     <Content Include="favicon.ico" />
     <Content Include="bower.json" />
     <None Include="Properties\PublishProfiles\RelativeStrengthCalculator-FrontEnd.pubxml" />
