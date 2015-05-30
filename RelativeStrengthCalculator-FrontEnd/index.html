@@ -78,7 +78,7 @@
                     <!--</div>-->
 
                 </div>
-                <button type="button" class="btn btn-success" onclick="myFunction()">Submit</button>
+                <button id="btnSubmit" type="button" class="btn btn-success">Submit</button>
                
             </form>
 
@@ -89,19 +89,21 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="RelativeStrengthCalculator.js"></script>
+
     <script>
-        
-            function myFunction() {
-               
-                alert($("#txtName").val());
-                alert($("#selAlgorithm").val());
-                alert($("#selUnits").val());
-                alert($("input:radio[name=radSex]:checked").val());
-                alert($("#txtBodyWeight").val());
-                alert($("#txtLiftWeight").val());
-            }
-       
-       
+            
+
+        (function (calculator) {
+            $("#btnSubmit").click(function () {
+                calculator.score({ algorithm: $("#selAlgorithm").val(), weightUnit: $("#selUnits").val(), sex: $("input:radio[name=radSex]:checked").val(), bodyWeight: $("#txtBodyWeight").val(), weight: $("#txtLiftWeight").val() },
+               function (response) { alert(response); })
+
+            });
+        })(Calculator);
+
+           
     </script>
 
     <div id="bubble-graph"></div>
