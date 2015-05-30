@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+<head>
 <title>Relative Strength Calculator</title>
 
 <!-- Bootstrap core CSS -->
@@ -20,10 +21,67 @@
    
     <div class="container">
 
-        <div class="starter-template">
+        
             <h1>Relative Strength Calculator</h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-        </div>
+
+            <form role="form">
+                <div class="form-group">
+                    <!--<div class="col-xs-3">-->
+                        <label for="txtName">Enter Your Name:</label>
+                    <input type="text" class="form-control col-xs-3" name="txtName" id="txtName">
+                    <!--</div>-->
+
+                </div>
+                <div class="form-group">
+                  
+                    <label for="selAlgorithm">Select an algorithm:</label>
+                    <select class="form-control" id="selAlgorithm">
+                        <option value="1">Schwartz\Malone</option>
+                        <option value="2">Wilks </option>
+                    </select> 
+                   
+                </div>
+                <div class="form-group">
+
+                    <label for="selUnits">Select the units:</label>
+                    <select class="form-control" id="selUnits">
+                        <option value="1">Pounds</option>
+                        <option value="2">Kilograms</option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+
+                    <input class="form-control" type="radio" name="radSex" value="1" checked>Male
+                    <br>
+                    <input class="form-control" type="radio" name="radSex" value="2">Female
+
+                    <!--<label for="selSex">Select a sex:</label>
+                    <select class="form-control" id="selSex">
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                    </select>-->
+
+                </div>
+                
+                <div class="form-group">
+                    <!--<div class="col-xs-3">-->
+                    <label for="txtBodyWeight">Enter Your Body Weight:</label>
+                    <input type="text" class="form-control col-xs-3" name="txtBodyWeight" id="txtBodyWeight">
+                    <!--</div>-->
+
+                </div>
+                <div class="form-group">
+                    <!--<div class="col-xs-3">-->
+                    <label for="txtLiftWeight">Enter Lift Weigth:</label>
+                    <input type="text" class="form-control col-xs-3" name="txtLiftWeight" id="txtLiftWeight">
+                    <!--</div>-->
+
+                </div>
+                <button type="button" class="btn btn-success" onclick="myFunction()">Submit</button>
+               
+            </form>
+
 
     </div><!-- /.container -->
     <!-- Bootstrap core JavaScript
@@ -31,6 +89,22 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        
+            function myFunction() {
+               
+                alert($("#txtName").val());
+                alert($("#selAlgorithm").val());
+                alert($("#selUnits").val());
+                alert($("input:radio[name=radSex]:checked").val());
+                alert($("#txtBodyWeight").val());
+                alert($("#txtLiftWeight").val());
+            }
+       
+       
+    </script>
+
+    <div id="bubble-graph"></div>
 
 </body>
 </html>
