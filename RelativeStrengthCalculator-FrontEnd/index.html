@@ -51,17 +51,19 @@
 
         </div>
         <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="radSex" value="1" checked>
+                    Male
+                </label>
 
-            <input class="form-control" type="radio" name="radSex" value="1" checked>Male
-            <br>
-            <input class="form-control" type="radio" name="radSex" value="2">Female
-
-            <!--<label for="selSex">Select a sex:</label>
-            <select class="form-control" id="selSex">
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-            </select>-->
-
+            </div>
+            <div>
+                <label>
+                    <input type="radio" name="radSex" value="2" checked>
+                    Female
+                </label>
+            </div>
         </div>
 
         <div class="form-group">
@@ -112,7 +114,6 @@
     }
 
     function AppendText(params, container) {
-        console.log(params);
         container.append("text")
             .attr("x", params.x_axis - (params.radius / 2))
             .attr("y", params.y_axis)
