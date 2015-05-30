@@ -57,7 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1433021387_Barbell.ico" />
+    <Content Include="favicon.ico" />
     <Content Include="bower.json" />
     <None Include="Properties\PublishProfiles\RelativeStrengthCalculator-FrontEnd.pubxml" />
     <None Include="Web.Debug.config">
