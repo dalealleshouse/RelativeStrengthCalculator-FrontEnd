@@ -96,56 +96,21 @@
 <script src="ResultsNotifier.js"></script>
     <script src="DataTransformer.js"></script>
 <script>
-    var jsonCircles = [
-        { "x_axis": 30, "y_axis": 30, "radius": 20, "color": "green" },
-        { "x_axis": 70, "y_axis": 70, "radius": 20, "color": "purple" },
-        { "x_axis": 110, "y_axis": 100, "radius": 20, "color": "red" }
-    ];
-
+    
     var svgContainer = d3.select("#bubble-graph").append("svg")
         .attr("width", 960)
         .attr("height", 960);
 
-    var circles = svgContainer.selectAll("circle")
-        .data(jsonCircles)
-        .enter()
-        .append("circle");
 
-    var circleAttributes = circles
-        .attr("cx", function(d) { return d.x_axis; })
-        .attr("cy", function(d) { return d.y_axis; })
-        .attr("r", function(d) { return d.radius; })
-        .style("fill", function(d) { return d.color; });
+    function AppendCircle(params, container) {
+        container.append("circle")
+        .attr("cx", params.x_axis)
+        .attr("cy", params.y_axis)
+        .attr("r", params.radius)
+        .attr("color", params.color);
+    }
 
-    // width of chart
-    //var diameter = 960,
-    //    format = d3.format(",d"),
-    //    // creates an ordinal scale with 20 colors. See D3 docs for hex values
-    //    color = d3.scale.category20c();
-
-    //// chart object to which we'll be adding data
-    //var bubble = d3.layout.pack()
-    //  .sort(null)
-    //  .size([diameter, diameter])
-    //  .padding(1.5);
-
-    //// add an svg to the DOM that our pack object will use to draw the 
-    //// visualization
-    //var svg = d3.select("#bubble-graph").append("svg")
-    //  .attr("width", diameter)
-    //  .attr("height", diameter)
-    //  .attr("class", "bubble");
-
-    //var circles = svgContainer.selectAll("circle")
-    //                          .data(jsonCircles)
-    //                          .enter()
-    //                          .append("circle");
-
-    //var circleAttributes = circles
-    //                       .attr("cx", function (d) { return d.x_axis; })
-    //                       .attr("cy", function (d) { return d.y_axis; })
-    //18                       .attr("r", function (d) { return d.radius; })
-    //19                       .style("fill", function(d) { return d.color; });
+    
 
     (function(calculator, notifier, dt) {
         var n = new notifier.Notifier(doit);
@@ -158,6 +123,13 @@
 
         function doit(results) {
             console.log(dt.transform(results));
+
+            var results = dt.transform(results);
+
+            results.forEach(function (p) {
+                AppendCircle(p, svgContainer);
+            })
+
         };
     })(Calculator, ResultsNotifier, DataTransformer);
 
@@ -184,25 +156,7 @@
             .text(function(d) { return d.className });
     }
 
-    function processData(dataResponse) {
-        var tagNames = pluck(_.flatten(pluck(dataResponse.data, 'tags')), 'name');
-        var tagNamesUnique = _.compact(_.uniq(tagNames));
-
-        return {
-            children: makeArrayCount(tagNamesUnique, tagNames).map(function(tagArray) {
-                return {
-                    className: tagArray[0],
-                    package: "cluster",
-                    value: tagArray[1]
-                };
-            })
-        };
-    }
-
-    function updateGraph(dataResponse) {
-        setGraphData(processData(dataResponse));
-    }
-
+   
 </script>
 
 
