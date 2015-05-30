@@ -39,7 +39,7 @@
             return s.result.Score;
         });
 
-        var third = sorted.length / 3;
+        var third = sorted.length / 4;
 
         for (var i = 0; i < sorted.length; i++) {
             if (i < third) {
@@ -47,6 +47,8 @@
             }
             else if (i < third * 2) {
                 sorted[i].color = "yellow";
+            } else if (i < third * 3) {
+                sorted[i].color = "blue";
             } else {
                 sorted[i].color = "green"
             }
