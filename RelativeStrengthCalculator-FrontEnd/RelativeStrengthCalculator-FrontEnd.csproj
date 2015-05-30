@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="index.html" />
     <Content Include="RelativeStrengthCalculator.js" />
+    <Content Include="ResultsNotifier.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

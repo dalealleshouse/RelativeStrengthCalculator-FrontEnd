@@ -91,17 +91,23 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="RelativeStrengthCalculator.js"></script>
-
+<script src="ResultsNotifier.js"></script>
     <script>
             
 
-        (function (calculator) {
+        (function (calculator, notifier) {
+            var n = new notifier.Notifier(doit);
+
             $("#btnSubmit").click(function () {
-                calculator.score({ algorithm: $("#selAlgorithm").val(), weightUnit: $("#selUnits").val(), sex: $("input:radio[name=radSex]:checked").val(), bodyWeight: $("#txtBodyWeight").val(), weight: $("#txtLiftWeight").val() },
-               function (response) { alert(response); })
+                n.addScore({ name: $("#txtName").val(), algorithm: $("#selAlgorithm").val(), weightUnit: $("#selUnits").val(), sex: $("input:radio[name=radSex]:checked").val(), bodyWeight: $("#txtBodyWeight").val(), weight: $("#txtLiftWeight").val() },
+                    function(response) { alert(response); });
 
             });
-        })(Calculator);
+
+            function doit(results) {
+                // your visualization code here
+            };
+        })(Calculator, ResultsNotifier);
 
            
     </script>
