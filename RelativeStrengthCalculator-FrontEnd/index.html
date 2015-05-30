@@ -1,182 +1,209 @@
 ﻿<!DOCTYPE html>
 <head>
-<title>Relative Strength Calculator</title>
+    <title>Relative Strength Calculator</title>
 
-<!-- Bootstrap core CSS -->
-<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
 
-<!-- Custom styles for this template -->
-<link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet"/>
 
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-  </head>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
 
 <body>
 
-   
-    <div class="container">
 
-        
-            <h1>Relative Strength Calculator</h1>
-
-            <form role="form">
-                <div class="form-group">
-                    <!--<div class="col-xs-3">-->
-                        <label for="txtName">Enter Your Name:</label>
-                    <input type="text" class="form-control col-xs-3" name="txtName" id="txtName">
-                    <!--</div>-->
-
-                </div>
-                <div class="form-group">
-                  
-                    <label for="selAlgorithm">Select an algorithm:</label>
-                    <select class="form-control" id="selAlgorithm">
-                        <option value="1">Schwartz\Malone</option>
-                        <option value="2">Wilks </option>
-                    </select> 
-                   
-                </div>
-                <div class="form-group">
-
-                    <label for="selUnits">Select the units:</label>
-                    <select class="form-control" id="selUnits">
-                        <option value="1">Pounds</option>
-                        <option value="2">Kilograms</option>
-                    </select>
-
-                </div>
-                <div class="form-group">
-
-                    <input class="form-control" type="radio" name="radSex" value="1" checked>Male
-                    <br>
-                    <input class="form-control" type="radio" name="radSex" value="2">Female
-
-                    <!--<label for="selSex">Select a sex:</label>
-                    <select class="form-control" id="selSex">
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                    </select>-->
-
-                </div>
-                
-                <div class="form-group">
-                    <!--<div class="col-xs-3">-->
-                    <label for="txtBodyWeight">Enter Your Body Weight:</label>
-                    <input type="text" class="form-control col-xs-3" name="txtBodyWeight" id="txtBodyWeight">
-                    <!--</div>-->
-
-                </div>
-                <div class="form-group">
-                    <!--<div class="col-xs-3">-->
-                    <label for="txtLiftWeight">Enter Lift Weigth:</label>
-                    <input type="text" class="form-control col-xs-3" name="txtLiftWeight" id="txtLiftWeight">
-                    <!--</div>-->
-
-                </div>
-                <button id="btnSubmit" type="button" class="btn btn-success">Submit</button>
-               
-            </form>
-
-        <div id="bubble-graph"></div>
+<div class="container">
 
 
-    </div><!-- /.container -->
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <h1>Relative Strength Calculator</h1>
 
-    <script src="RelativeStrengthCalculator.js"></script>
+    <form role="form">
+        <div class="form-group">
+            <!--<div class="col-xs-3">-->
+            <label for="txtName">Enter Your Name:</label>
+            <input type="text" class="form-control col-xs-3" name="txtName" id="txtName">
+            <!--</div>-->
+
+        </div>
+        <div class="form-group">
+
+            <label for="selAlgorithm">Select an algorithm:</label>
+            <select class="form-control" id="selAlgorithm">
+                <option value="1">Schwartz\Malone</option>
+                <option value="2">Wilks </option>
+            </select>
+
+        </div>
+        <div class="form-group">
+
+            <label for="selUnits">Select the units:</label>
+            <select class="form-control" id="selUnits">
+                <option value="1">Pounds</option>
+                <option value="2">Kilograms</option>
+            </select>
+
+        </div>
+        <div class="form-group">
+
+            <input class="form-control" type="radio" name="radSex" value="1" checked>Male
+            <br>
+            <input class="form-control" type="radio" name="radSex" value="2">Female
+
+            <!--<label for="selSex">Select a sex:</label>
+            <select class="form-control" id="selSex">
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>-->
+
+        </div>
+
+        <div class="form-group">
+            <!--<div class="col-xs-3">-->
+            <label for="txtBodyWeight">Enter Your Body Weight:</label>
+            <input type="text" class="form-control col-xs-3" name="txtBodyWeight" id="txtBodyWeight">
+            <!--</div>-->
+
+        </div>
+        <div class="form-group">
+            <!--<div class="col-xs-3">-->
+            <label for="txtLiftWeight">Enter Lift Weigth:</label>
+            <input type="text" class="form-control col-xs-3" name="txtLiftWeight" id="txtLiftWeight">
+            <!--</div>-->
+
+        </div>
+        <button id="btnSubmit" type="button" class="btn btn-success">Submit</button>
+
+    </form>
+
+    <div id="bubble-graph"></div>
+
+
+</div><!-- /.container -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/d3/d3.min.js"></script>
+<script src="RelativeStrengthCalculator.js"></script>
 <script src="ResultsNotifier.js"></script>
-    <script>
-            
+<script>
+    var jsonCircles = [
+        { "x_axis": 30, "y_axis": 30, "radius": 20, "color": "green" },
+        { "x_axis": 70, "y_axis": 70, "radius": 20, "color": "purple" },
+        { "x_axis": 110, "y_axis": 100, "radius": 20, "color": "red" }
+    ];
 
-        (function (calculator, notifier) {
-            var n = new notifier.Notifier(doit);
+    var svgContainer = d3.select("#bubble-graph").append("svg")
+        .attr("width", 960)
+        .attr("height", 960);
 
-            $("#btnSubmit").click(function () {
-                n.addScore({ name: $("#txtName").val(), algorithm: $("#selAlgorithm").val(), weightUnit: $("#selUnits").val(), sex: $("input:radio[name=radSex]:checked").val(), bodyWeight: $("#txtBodyWeight").val(), weight: $("#txtLiftWeight").val() },
-                    function(response) { alert(response); });
+    var circles = svgContainer.selectAll("circle")
+        .data(jsonCircles)
+        .enter()
+        .append("circle");
 
-            });
+    var circleAttributes = circles
+        .attr("cx", function(d) { return d.x_axis; })
+        .attr("cy", function(d) { return d.y_axis; })
+        .attr("r", function(d) { return d.radius; })
+        .style("fill", function(d) { return d.color; });
 
-            function doit(results) {
-                // your visualization code here
-            };
-        })(Calculator, ResultsNotifier);
+    // width of chart
+    //var diameter = 960,
+    //    format = d3.format(",d"),
+    //    // creates an ordinal scale with 20 colors. See D3 docs for hex values
+    //    color = d3.scale.category20c();
+
+    //// chart object to which we'll be adding data
+    //var bubble = d3.layout.pack()
+    //  .sort(null)
+    //  .size([diameter, diameter])
+    //  .padding(1.5);
+
+    //// add an svg to the DOM that our pack object will use to draw the 
+    //// visualization
+    //var svg = d3.select("#bubble-graph").append("svg")
+    //  .attr("width", diameter)
+    //  .attr("height", diameter)
+    //  .attr("class", "bubble");
+
+    //var circles = svgContainer.selectAll("circle")
+    //                          .data(jsonCircles)
+    //                          .enter()
+    //                          .append("circle");
+
+    //var circleAttributes = circles
+    //                       .attr("cx", function (d) { return d.x_axis; })
+    //                       .attr("cy", function (d) { return d.y_axis; })
+    //18                       .attr("r", function (d) { return d.radius; })
+    //19                       .style("fill", function(d) { return d.color; });
+
+    (function(calculator, notifier) {
+        var n = new notifier.Notifier(doit);
+
+        $("#btnSubmit").click(function() {
+            n.addScore({ name: $("#txtName").val(), algorithm: $("#selAlgorithm").val(), weightUnit: $("#selUnits").val(), sex: $("input:radio[name=radSex]:checked").val(), bodyWeight: $("#txtBodyWeight").val(), weight: $("#txtLiftWeight").val() },
+                function(response) { alert(response); });
+
+        });
+
+        function doit(results) {
+            // your visualization code here
+        };
+    })(Calculator, ResultsNotifier);
 
 
-        // width of chart
-        var diameter = 960,
-            format = d3.format(",d"),
-            // creates an ordinal scale with 20 colors. See D3 docs for hex values
-            color = d3.scale.category20c();
+    function setGraphData(data) {
+        var node = svg.selectAll(".node")
+            // Here's where we pass our data to the pack object
+            .data(bubble.nodes(data)
+                .filter(function(d) { return !d.children; }))
+            .enter().append("g")
+            .attr("class", "node")
+            .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
-        // chart object to which we'll be adding data
-        var bubble = d3.layout.pack()
-          .sort(null)
-          .size([diameter, diameter])
-          .padding(1.5);
+        // Append a circle for each tag name
+        node.append("circle")
+            .attr("r", function(d) { return d.r; })
+            .style("fill", function(d) { return color(d.className); });
 
-        // add an svg to the DOM that our pack object will use to draw the 
-        // visualization
-        var svg = d3.select("#bubble-graph").append("svg")
-          .attr("width", diameter)
-          .attr("height", diameter)
-          .attr("class", "bubble");
+        // Add a label to each circle, using the tag name as the label's text
+        node.append("text")
+            .attr("dy", ".3em")
+            .style("text-anchor", "middle")
+            .style("font-size", "12px")
+            .text(function(d) { return d.className });
+    }
 
+    function processData(dataResponse) {
+        var tagNames = pluck(_.flatten(pluck(dataResponse.data, 'tags')), 'name');
+        var tagNamesUnique = _.compact(_.uniq(tagNames));
 
-        function setGraphData(data) {
-            var node = svg.selectAll(".node")
-              // Here's where we pass our data to the pack object
-              .data(bubble.nodes(data)
-              .filter(function (d) { return !d.children; }))
-              .enter().append("g")
-              .attr("class", "node")
-              .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
+        return {
+            children: makeArrayCount(tagNamesUnique, tagNames).map(function(tagArray) {
+                return {
+                    className: tagArray[0],
+                    package: "cluster",
+                    value: tagArray[1]
+                };
+            })
+        };
+    }
 
-            // Append a circle for each tag name
-            node.append("circle")
-              .attr("r", function (d) { return d.r; })
-              .style("fill", function (d) { return color(d.className); });
+    function updateGraph(dataResponse) {
+        setGraphData(processData(dataResponse));
+    }
 
-            // Add a label to each circle, using the tag name as the label's text
-            node.append("text")
-              .attr("dy", ".3em")
-              .style("text-anchor", "middle")
-              .style("font-size", "12px")
-              .text(function (d) { return d.className });
-        }
+</script>
 
-        function processData(dataResponse) {
-            var tagNames = pluck(_.flatten(pluck(dataResponse.data, 'tags')), 'name');
-            var tagNamesUnique = _.compact(_.uniq(tagNames));
-
-            return {
-                children: makeArrayCount(tagNamesUnique, tagNames).map(function (tagArray) {
-                    return {
-                        className: tagArray[0],
-                        package: "cluster",
-                        value: tagArray[1]
-                    }
-                })
-            }
-
-        }
-
-        function updateGraph(dataResponse) {
-            setGraphData(processData(dataResponse));
-        }
-           
-    </script>
-
-   
 
 </body>
 </html>
